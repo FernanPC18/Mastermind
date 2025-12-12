@@ -14,7 +14,7 @@ COLOR_LIST = [
 def generate_first_population():
     population = []
 
-    for i in range(12): #bucle que se repite 12 veces
+    for i in range(80): #bucle que se repite 80 veces
         color_numbers = choices(range(0, 6), k=4)  # Genera 4 números aleatorios del 0 al 5
         individual = [] 
         
