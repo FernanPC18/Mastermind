@@ -1,6 +1,12 @@
-def main():
-    print("Hello from mastermind!")
+from src.generate_solution import generate_solution
+from src.generate_first_population import generate_first_population
+from src.find_fitness import find_fitness
 
+def main():
+
+    solution = generate_solution()
+    population = generate_first_population()
+    find_fitness(solution, population)
 
 if __name__ == "__main__":
     main()
