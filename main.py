@@ -1,6 +1,6 @@
 from src.generate_solution import generate_solution
 from src.generate_first_population import generate_first_population
-from src.find_fitness import find_fitness
+from src.find_individual_fitness import find_fitness
 
 def main():
 
