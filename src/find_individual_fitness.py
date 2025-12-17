@@ -1,14 +1,14 @@
 def find_individual_fitness(solution, population):
     fitness = {}
-    puntuation = 0
 
-    for posicion, i in enumerate(population):
-        for j in enumerate(i):
-            j_position = j[0]
-            if j[1] == solution[j_position] or (j in solution):
+    for individual_number, individual in enumerate(population):
+        puntuation = 0
+        for gene_individual in enumerate(individual):
+            gene_population = gene_individual[0]
+            if gene_individual[1] == solution[gene_population] or (gene_individual in solution):
                 puntuation += 1
             else:
                 puntuation -= 1
-        fitness[posicion + 1] = puntuation
+        fitness[individual_number + 1] = puntuation
         
     return fitness
