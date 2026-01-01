@@ -13,5 +13,6 @@ def main():
     fitness = find_individual_fitness(solution, population)
     select_first_parents(fitness, population)
 
+    parent_fitness_dict = select_first_parents(fitness, population)
 if __name__ == "__main__":
     main()
