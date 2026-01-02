@@ -3,6 +3,7 @@ from src.generate_first_population import generate_first_population
 from src.find_individual_fitness import find_individual_fitness
 
 from src.select_first_parents import select_first_parents
+from src.select_first_parents import create_first_offspring
 
 def main():
 
@@ -13,6 +14,7 @@ def main():
     fitness = find_individual_fitness(solution, population)
     select_first_parents(fitness, population)
 
-    parent_fitness_dict = select_first_parents(fitness, population)
+    parents, parent_fitness = select_first_parents(fitness, population)
+    new_offsprings = create_first_offspring(parents)
 if __name__ == "__main__":
     main()
