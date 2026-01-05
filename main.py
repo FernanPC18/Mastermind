@@ -17,8 +17,6 @@ def main():
     fitness = find_individual_fitness(solution, population)
     select_first_parents(fitness, population)
 
-    parents, parent_fitness = select_first_parents(fitness, population)
-
     parents = select_first_parents(fitness, population)
     create_first_offspring(parents, population)
 

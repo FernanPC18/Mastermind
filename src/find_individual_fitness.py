@@ -1,5 +1,5 @@
 def find_individual_fitness(solution, population):
-    fitness = {}
+    fitness = []
 
     # * Individual_number es el indice de cada individuo e individual es cada individuo
     for individual_number, individual in enumerate(population):
@@ -27,6 +27,7 @@ def find_individual_fitness(solution, population):
                 individual_copy[gene_individual] = None
                 solution_copy[gene_individual] = None
 
-        fitness[individual_number] = fitness_score
 
+        fitness.append((individual_number, fitness_score))
+    
     return fitness
