@@ -1,4 +1,5 @@
-def create_offspring(parents):
+import random
+def create_first_offspring(parents, population):
     offsprings = []
     # Emparejar padres (0 con 1, 2 con 3, etc.)
     for selected_parents in range(0, len(parents), 2):
@@ -18,5 +19,13 @@ def create_offspring(parents):
             
             offsprings.append(offspring1)
             offsprings.append(offspring2)
-    
+
+            offsprings.append(population)
     return offsprings
+
+def delete_individual(population, fitness):
+    for veces in range(20):
+        deleted_individuals = random.choices(population, weights = fitness.values(),k=1)
+        for i, j in enumerate(deleted_individuals):
+            population.remove(deleted_individuals[i])           
+    return population
