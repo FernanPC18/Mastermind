@@ -5,8 +5,8 @@ from src.find_individual_fitness import find_individual_fitness
 from src.select_first_parents import select_first_parents
 
 from src.create_offspring import create_first_offspring
-
 from src.create_offspring import create_new_population
+#from src.create_offspring import mutation
 
 def main():
 
@@ -21,6 +21,8 @@ def main():
     new_fitness = find_individual_fitness(solution, population)
 
     create_new_population(population, new_fitness)
+
+ #   mutation(population)
 
 if __name__ == "__main__":
     main()

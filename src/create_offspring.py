@@ -1,8 +1,8 @@
 import random
 from src.find_individual_fitness import find_individual_fitness
-from src.generate_solution import generate_solution
+from src.mutation import mutation
+
 def create_first_offspring(parents, population, solution):
-    offsprings = []
     # Emparejar padres (0 con 1, 2 con 3, etc.)
     for selected_parents in range(0, len(parents), 2):
         if selected_parents + 1 < len(parents):
@@ -29,9 +29,10 @@ def create_first_offspring(parents, population, solution):
 
 def create_new_population(population, new_fitness):
     new_population = []
-    for veces in range(80):
+    for i in range(80):
         individuals_added = random.choices(population, weights = new_fitness.values(),k=1)
-        for i, j in enumerate(individuals_added):
-            new_population.append(j)
+        for i, individual in enumerate(individuals_added):
+            mutation(individual)
+            new_population.append(individual)
 
     return new_population
