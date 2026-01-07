@@ -1,5 +1,7 @@
 import random
-def create_first_offspring(parents, population):
+from src.find_individual_fitness import find_individual_fitness
+from src.generate_solution import generate_solution
+def create_first_offspring(parents, population, solution):
     offsprings = []
     # Emparejar padres (0 con 1, 2 con 3, etc.)
     for selected_parents in range(0, len(parents), 2):
@@ -17,15 +19,19 @@ def create_first_offspring(parents, population):
             offspring1 = parent1_left_half + parent2_right_half  # izquierda de parent1 + derecha de parent2
             offspring2 = parent2_left_half + parent1_right_half  # izquierda de parent2 + derecha de parent1
             
-            offsprings.append(offspring1)
-            offsprings.append(offspring2)
+            population.append(offspring1)
+            population.append(offspring2)
 
-            offsprings.append(population)
-    return offsprings
+    # Calcular new_fitness para la población actualizada
+        new_fitness = find_individual_fitness(solution, population)
 
-def delete_individual(population, fitness):
-    for veces in range(20):
-        deleted_individuals = random.choices(population, weights = fitness.values(),k=1)
-        for i, j in enumerate(deleted_individuals):
-            population.remove(deleted_individuals[i])           
-    return population
+    return population, new_fitness
+
+def create_new_population(population, new_fitness):
+    new_population = []
+    for veces in range(80):
+        individuals_added = random.choices(population, weights = new_fitness.values(),k=1)
+        for i, j in enumerate(individuals_added):
+            new_population.append(j)
+
+    return new_population

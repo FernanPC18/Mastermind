@@ -6,23 +6,21 @@ from src.select_first_parents import select_first_parents
 
 from src.create_offspring import create_first_offspring
 
-from src.create_offspring import delete_individual
+from src.create_offspring import create_new_population
 
 def main():
 
     solution = generate_solution()
     population = generate_first_population()
-    find_individual_fitness(solution, population)
 
     fitness = find_individual_fitness(solution, population)
-    select_first_parents(fitness, population)
-
-    parents, parent_fitness = select_first_parents(fitness, population)
-
     parents = select_first_parents(fitness, population)
-    create_first_offspring(parents, population)
 
-    delete_individual(population, fitness)
+    create_first_offspring(parents, population, solution)
+
+    new_fitness = find_individual_fitness(solution, population)
+
+    create_new_population(population, new_fitness)
 
 if __name__ == "__main__":
     main()
