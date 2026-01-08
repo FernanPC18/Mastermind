@@ -6,7 +6,7 @@ from src.select_first_parents import select_first_parents
 
 from src.create_offspring import create_first_offspring
 from src.create_offspring import create_new_population
-# from src.create_offspring import mutation
+from src.create_offspring import mutation
 
 
 def main():
@@ -22,7 +22,7 @@ def main():
 
     create_new_population(population, old_fitness, solution)
 
-    #   mutation(population)
+    mutation(population)
 
     fitness = find_individual_fitness(solution, population)
     select_first_parents(fitness, population)
