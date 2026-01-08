@@ -30,6 +30,8 @@ def main():
 
     check_solution(solution, population, fitness)
 
+    check_solution(solution, population, fitness)
+
 
 if __name__ == "__main__":
     main()
