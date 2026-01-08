@@ -28,7 +28,7 @@ def main():
     select_first_parents(fitness, population)
 
     parents = select_first_parents(fitness, population)
-    create_first_offspring(parents, population)
+    create_first_offspring(parents, population, solution)
 
 
 if __name__ == "__main__":
