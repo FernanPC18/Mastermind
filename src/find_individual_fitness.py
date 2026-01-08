@@ -17,10 +17,11 @@ def find_individual_fitness(solution, population):
                 individual_copy[gene_individual] = None
                 solution_copy[gene_individual] = None
 
-            elif allele_individual in solution:
+            elif allele_individual in solution and allele_individual != solution[gene_individual]:
                 fitness_score += 1
                 individual_copy[gene_individual] = None
                 solution_copy[gene_individual] = None
+                
 
             else:
                 fitness_score -= 1
