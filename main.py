@@ -5,14 +5,24 @@ from src.find_individual_fitness import find_individual_fitness
 from src.select_first_parents import select_first_parents
 
 from src.create_offspring import create_first_offspring
+from src.create_offspring import create_new_population
+# from src.create_offspring import mutation
 
-from src.create_offspring import delete_individual
 
 def main():
-
     solution = generate_solution()
     population = generate_first_population()
-    find_individual_fitness(solution, population)
+
+    fitness = find_individual_fitness(solution, population)
+    parents = select_first_parents(fitness, population)
+
+    create_first_offspring(parents, population, solution)
+
+    new_fitness = find_individual_fitness(solution, population)
+
+    create_new_population(population, new_fitness)
+
+    #   mutation(population)
 
     fitness = find_individual_fitness(solution, population)
     select_first_parents(fitness, population)
@@ -20,7 +30,6 @@ def main():
     parents = select_first_parents(fitness, population)
     create_first_offspring(parents, population)
 
-    delete_individual(population, fitness)
 
 if __name__ == "__main__":
     main()
