@@ -8,6 +8,8 @@ from src.create_offspring import create_first_offspring
 from src.create_offspring import create_new_population
 from src.create_offspring import mutation
 
+from src.check_solution import check_solution
+
 
 def main():
     solution = generate_solution()
@@ -29,6 +31,8 @@ def main():
 
     parents = select_first_parents(fitness, population)
     create_first_offspring(parents, population, solution)
+
+    check_solution(solution, population, fitness)
 
 
 if __name__ == "__main__":
