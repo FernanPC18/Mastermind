@@ -18,9 +18,9 @@ def main():
 
     create_first_offspring(parents, population, solution)
 
-    new_fitness = find_individual_fitness(solution, population)
+    old_fitness = find_individual_fitness(solution, population)
 
-    create_new_population(population, new_fitness)
+    create_new_population(population, old_fitness, solution)
 
  #   mutation(population)
 
