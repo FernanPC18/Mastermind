@@ -16,6 +16,8 @@ def main():
     fitness = find_individual_fitness(solution, population)
     parents = select_first_parents(fitness, population)
 
+    select_first_parents(fitness, population)
+
     create_first_offspring(parents, population, solution)
 
     old_fitness = find_individual_fitness(solution, population)
@@ -23,12 +25,6 @@ def main():
     create_new_population(population, old_fitness, solution)
 
     mutation(population)
-
-    fitness = find_individual_fitness(solution, population)
-    select_first_parents(fitness, population)
-
-    parents = select_first_parents(fitness, population)
-    create_first_offspring(parents, population, solution)
 
 
 if __name__ == "__main__":
