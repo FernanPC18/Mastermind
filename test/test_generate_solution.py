@@ -1,5 +1,6 @@
 import pytest
-from src.constants import generate_solution, COLOR_LIST
+from src.constants import COLOR_LIST
+from src.generate_solution import generate_solution
 
 
 @pytest.mark.solution
