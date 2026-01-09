@@ -18,9 +18,9 @@ def main():
     fitness = find_individual_fitness(solution, population)
     parents = select_first_parents(fitness, population)
 
-    select_first_parents(fitness, population)
+    create_first_offspring(parents, population, solution, fitness)
 
-    create_first_offspring(parents, population, solution)
+    mutation(population)
 
     old_fitness = find_individual_fitness(solution, population)
 
@@ -32,7 +32,7 @@ def main():
     select_first_parents(fitness, population)
 
     parents = select_first_parents(fitness, population)
-    create_first_offspring(parents, population, solution)
+    create_first_offspring(parents, population, solution, fitness)
 
     check_solution(solution, population, fitness)
 
