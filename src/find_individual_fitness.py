@@ -11,21 +11,26 @@ def find_individual_fitness(solution, population):
         # * gene_allele_individual es el indice y uno de los elementos de individual
 
         for gene_individual, allele_individual in enumerate(individual_copy):
+            # Si el alelo ya fue marcado como None (ya procesado), saltarlo
+            if allele_individual is None:
+                continue
 
-            if allele_individual == solution[gene_individual]:
+            # Comprobación de match exacto en la misma posición (y marcarlo)
+            if allele_individual == solution_copy[gene_individual]:
                 fitness_score += 1
                 individual_copy[gene_individual] = None
                 solution_copy[gene_individual] = None
 
-            elif allele_individual in solution:
+            # Comprobación de match en otra posición: buscar en solution_copy
+            elif allele_individual in solution_copy:
+                match_index = solution_copy.index(allele_individual)
                 fitness_score += 1
                 individual_copy[gene_individual] = None
-                solution_copy[gene_individual] = None
+                solution_copy[match_index] = None
 
             else:
                 fitness_score -= 1
                 individual_copy[gene_individual] = None
-                solution_copy[gene_individual] = None
 
         fitness[individual_number] = fitness_score
 
