@@ -1,15 +1,5 @@
 from random import choices
-
-
-COLOR_LIST = [
-    "R",
-    "G",
-    "B",
-    "Y",
-    "P",
-    "W",
-]
-
+from src.constants import COLOR_LIST
 
 def generate_first_population():
     population = []
