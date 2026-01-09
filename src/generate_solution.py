@@ -2,12 +2,12 @@ from random import choices
 
 
 COLOR_LIST = [
-    "R",
-    "G",
-    "B",
-    "Y",
-    "P",
-    "W",
+    "R", # Red
+    "G", # Green
+    "B", # Blue
+    "Y", # Yellow
+    "P", # Pink
+    "W", # White
 ]  # Lista de todos los colores posibles a  usar en el juego
 
 
