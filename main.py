@@ -26,7 +26,7 @@ def main():
 
         # generar nueva población basada en la población actual
         old_fitness = find_individual_fitness(solution, population)
-        new_population= create_new_population(population, old_fitness, solution)
+        new_population, _ = create_new_population(population, old_fitness, solution)
 
         # aplicar mutación a cada individuo de la nueva población
         for individual in new_population:
