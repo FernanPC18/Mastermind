@@ -9,6 +9,7 @@ from src.create_offspring import create_new_population
 from src.create_offspring import mutation
 
 from src.check_solution import check_solution
+from src.display_solution_comparison import display_solution_comparison
 
 
 def main():
@@ -16,8 +17,8 @@ def main():
     population = generate_first_population()
 
     fitness = find_individual_fitness(solution, population)
-    timer = 0
-    while timer < 11:
+    generation = 1
+    while generation < 12:
         # seleccionar padres usando el fitness más reciente
         parents = select_first_parents(fitness, population)
 
@@ -36,8 +37,9 @@ def main():
         population = new_population
         fitness = find_individual_fitness(solution, population)
 
-        check_solution(solution, population, fitness)
-        timer += 1
+        display_solution_comparison(generation, individual, solution)
+        check_solution(solution, population, fitness, generation)
+        generation += 1
 
 if __name__ == "__main__":
     main()

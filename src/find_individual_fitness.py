@@ -27,7 +27,7 @@ def find_individual_fitness(solution, population):
             # Comprobación de match en otra posición: buscar en solution_copy
             elif allele_individual in solution_copy:
                 match_index = solution_copy.index(allele_individual)
-                fitness_score += 1
+                fitness_score += 0
                 individual_copy[gene_individual] = None
                 solution_copy[match_index] = None
 
