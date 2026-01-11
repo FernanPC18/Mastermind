@@ -16,26 +16,28 @@ def main():
     population = generate_first_population()
 
     fitness = find_individual_fitness(solution, population)
-    parents = select_first_parents(fitness, population)
+    timer = 0
+    while timer < 11:
+        # seleccionar padres usando el fitness más reciente
+        parents = select_first_parents(fitness, population)
 
-    create_first_offspring(parents, population, solution, fitness)
+        # crear descendientes y actualizar población
+        population, fitness = create_first_offspring(parents, population, solution)
 
-    mutation(population)
+        # generar nueva población basada en la población actual
+        old_fitness = find_individual_fitness(solution, population)
+        new_population, _ = create_new_population(population, old_fitness, solution)
 
-    old_fitness = find_individual_fitness(solution, population)
+        # aplicar mutación a cada individuo de la nueva población
+        for individual in new_population:
+            mutation(individual)
 
-    create_new_population(population, old_fitness, solution)
+        # reemplazar población por la nueva y recalcular fitness
+        population = new_population
+        fitness = find_individual_fitness(solution, population)
 
-    mutation(population)
-
-    fitness = find_individual_fitness(solution, population)
-    select_first_parents(fitness, population)
-
-    parents = select_first_parents(fitness, population)
-    create_first_offspring(parents, population, solution, fitness)
-
-    check_solution(solution, population, fitness)
-
+        check_solution(solution, population, fitness)
+        timer += 1
 
 if __name__ == "__main__":
     main()
