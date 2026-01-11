@@ -62,7 +62,7 @@ Todo el proyecto esubimos haciendo pair programing, centrandonos en un modulo a 
 
 - __Python__:
     - __Pytest__: Framework para facilitar la creación de casos test.
-    - __Colorama__: Librería externa para añadir colores.
+    - __Pytest-sugar__: Herramienta para hacer más comodo el probar test.
 - __Markdown__
 
 ## Conclusión
