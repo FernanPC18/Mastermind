@@ -18,7 +18,8 @@ def main():
 
     fitness = find_individual_fitness(solution, population)
     generation = 1
-    while generation < 12:
+    
+    while generation <= 12:
         # seleccionar padres usando el fitness más reciente
         parents = select_first_parents(fitness, population)
 
