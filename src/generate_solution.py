@@ -1,15 +1,5 @@
 from random import choices
-
-
-COLOR_LIST = [
-    "R", # Red
-    "G", # Green
-    "B", # Blue
-    "Y", # Yellow
-    "P", # Pink
-    "W", # White
-]  # Lista de todos los colores posibles a  usar en el juego
-
+from src.constants import COLOR_LIST
 
 def generate_solution():
     color_numbers = choices(range(0, 6), k=4)  # Genera 4 números aleatorios del 0 al 5

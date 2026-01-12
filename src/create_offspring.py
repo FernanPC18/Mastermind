@@ -32,13 +32,13 @@ def create_first_offspring(parents, population, solution):
 
     return population, fitness
 
-def create_new_population(population, old_fitness, solution):
+def create_new_population(population, fitness, solution):
     new_population = []
-    for i in range(80):
-        individuals_added = random.choices(population, weights = old_fitness.values(),k=1)
-        for i, individual in enumerate(individuals_added):
-            mutation(individual)
-            new_population.append(individual)
-            fitness = find_individual_fitness(solution, new_population)        
+    individuals_added = random.choices(population, weights = fitness.values(),k=80)
+    for i, individual in enumerate(individuals_added):
+        new_population.append(individual)
+        population = new_population
+        new_fitness = find_individual_fitness(solution, new_population)
+        fitness = new_fitness
 
-    return new_population, fitness
+    return new_population, new_fitness
