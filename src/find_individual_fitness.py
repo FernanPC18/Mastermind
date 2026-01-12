@@ -20,6 +20,12 @@ def find_individual_fitness(solution, population):
                 individual_copy[gene_individual] = None
                 solution_copy[gene_individual] = None
 
+            elif allele_individual in solution_copy:
+                match_index = solution_copy.index(allele_individual)
+                fitness_score += 0
+                individual_copy[gene_individual] = None
+                solution_copy[match_index] = None
+
             # No hay coincidencia
             else:
                 fitness_score -= 1
