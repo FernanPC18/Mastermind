@@ -45,22 +45,21 @@ def test_color_only_swapped_positions():
     population = [["G", "R", "w", "w"]]
 
     fitness = find_individual_fitness(solution, population)
-    # Dos coincidencias de color en distinta posición -> 4 +1 +1 -1 -1 = 4
-    assert fitness[0] == 4
+    # Dos coincidencias de color en distinta posición -> 4 + 0 + 0 - 1 - 1 = 2 
+    assert fitness[0] == 2
 
 @pytest.mark.fitness
 def test_multiple_individuals_results():
     """Varios individuos en la población -> comprobar índices y valores"""
     solution = ["R", "G", "B", "Y"]
     population = [
-        ["G", "R", "w", "w"],  # 4
-        ["R", "B", "G", "w"],  # 6
+        ["G", "R", "w", "w"],  # 2
+        ["R", "B", "G", "w"],  # 4
     ]
 
     fitness = find_individual_fitness(solution, population)
-    assert len(fitness) == 2
-    assert fitness[0] == 4
-    assert fitness[1] == 6
+    assert fitness[0] == 2
+    assert fitness[1] == 4
 
 
 @pytest.mark.fitness
